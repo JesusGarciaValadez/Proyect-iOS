@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71E8E11D1B7A94780091AAF8 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8E11C1B7A94780091AAF8 /* TodoList.swift */; };
 		EA0F82351B73284800250AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F82341B73284800250AA4 /* AppDelegate.swift */; };
 		EA0F82371B73284800250AA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F82361B73284800250AA4 /* ViewController.swift */; };
 		EA0F823A1B73284800250AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0F82381B73284800250AA4 /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		71E8E11C1B7A94780091AAF8 /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		EA0F82311B73284800250AA4 /* proyecto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = proyecto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0F82341B73284800250AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA0F82361B73284800250AA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				EA0F82341B73284800250AA4 /* AppDelegate.swift */,
 				EA0F82361B73284800250AA4 /* ViewController.swift */,
+				71E8E11C1B7A94780091AAF8 /* TodoList.swift */,
 				EA0F82381B73284800250AA4 /* Main.storyboard */,
 				EA0F823E1B73284800250AA4 /* Assets.xcassets */,
 				EA0F82401B73284800250AA4 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 				EA0F823D1B73284800250AA4 /* proyecto.xcdatamodeld in Sources */,
 				EA0F82371B73284800250AA4 /* ViewController.swift in Sources */,
 				EA0F82351B73284800250AA4 /* AppDelegate.swift in Sources */,
+				71E8E11D1B7A94780091AAF8 /* TodoList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +491,7 @@
 				EA0F825E1B73284900250AA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA0F825F1B73284900250AA4 /* Build configuration list for PBXNativeTarget "proyectoTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +500,7 @@
 				EA0F82611B73284900250AA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EA0F82621B73284900250AA4 /* Build configuration list for PBXNativeTarget "proyectoUITests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +509,7 @@
 				EA0F82641B73284900250AA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
