@@ -104,9 +104,9 @@
 				EA0F82341B73284800250AA4 /* AppDelegate.swift */,
 				EA0F82361B73284800250AA4 /* ViewController.swift */,
 				71E8E11C1B7A94780091AAF8 /* TodoList.swift */,
+				EA0F82401B73284800250AA4 /* LaunchScreen.storyboard */,
 				EA0F82381B73284800250AA4 /* Main.storyboard */,
 				EA0F823E1B73284800250AA4 /* Assets.xcassets */,
-				EA0F82401B73284800250AA4 /* LaunchScreen.storyboard */,
 				EA0F82431B73284800250AA4 /* Info.plist */,
 				EA0F823B1B73284800250AA4 /* proyecto.xcdatamodeld */,
 			);

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
+class ViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     let todoList: TodoList = TodoList()
@@ -18,6 +18,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
         print( "Agregando un elemento a la lista \(self.itemTextField.text!)" )
         self.todoList.addItem( item: self.itemTextField.text! )
         tableView.reloadData()
+
+        self.textFieldResignFirstResponder()
     }
 
     override func viewDidLoad() {
@@ -28,4 +30,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
         tableView.registerClass( UITableViewCell.self, forCellReuseIdentifier: "Cell" )
         tableView.dataSource = self.todoList
     }
+
+    // MARK: - Blur from the TextField and resign first responder
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.textFieldResignFirstResponder()
+    }
+
+    func textFieldResignFirstResponder() {
+        self.itemTextField?.resignFirstResponder()
+    }
+}
+
+// PRAGMA MARK: - Métodos del TextFieldDelegate
+extension ViewController: UITextFieldDelegate {
+
 }

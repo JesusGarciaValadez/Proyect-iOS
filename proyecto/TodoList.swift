@@ -9,14 +9,47 @@
 import UIKit
 
 class TodoList: NSObject {
-    var items: [ String ] = [ ]
+    var items: [ String ] = []
+
+    override init() {
+        super.init()
+
+        loadItems()
+    }
+
+    private let fileURL: NSURL = {
+        let fileManager = NSFileManager.defaultManager()
+        let documentDirectoryURLs = fileManager.URLsForDirectory( .DocumentDirectory,
+            inDomains: .UserDomainMask ) as [ NSURL ]
+        let documentDirectoryURL = documentDirectoryURLs.first!
+        print( "Path a documents \(documentDirectoryURL)" )
+
+        return documentDirectoryURL.URLByAppendingPathComponent( "todolist.items" )
+    }()
 
     func addItem( item item: String ) {
         items.append( item )
+
+        self.saveItems()
+    }
+
+    func saveItems() {
+        let itemsArray = items as NSArray
+        if itemsArray.writeToURL( self.fileURL, atomically: true ) {
+            print( "Guardado" )
+        } else {
+            print( "No guardado" )
+        }
+    }
+
+    func loadItems() {
+        if let itemsArray = NSArray( contentsOfURL: self.fileURL ) as? [ String ] {
+            self.items = itemsArray
+        }
     }
 }
 
-// Pragma Mark: - Métodos del TableViewDataSource
+// PRAGMA MARK: - Métodos del TableViewDataSource
 extension TodoList : UITableViewDataSource {
     // Tells the data source to return the number of rows in a given section of a table view.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
