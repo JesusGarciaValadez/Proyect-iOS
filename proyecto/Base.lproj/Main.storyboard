@@ -1,27 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D7V-Af-PcU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8173.3" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8142"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="VBe-ul-XGb">
-            <objects>
-                <navigationController id="D7V-Af-PcU" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LPU-lc-tz8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qMd-qN-5F8"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QPb-jf-hx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="828" y="13"/>
-        </scene>
         <!--Lista de tareas-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -34,35 +18,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDE-of-9p9">
-                                <rect key="frame" x="534" y="28" width="56" height="30"/>
-                                <state key="normal" title="Guardar"/>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escribir tarea" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2XP-Jb-3xm">
-                                <rect key="frame" x="20" y="29" width="506" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mnx-DB-YQF">
+                                <rect key="frame" x="20" y="28" width="496" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jxl-MB-TpQ">
-                                <rect key="frame" x="20" y="67" width="560" height="513"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9jP-N5-Dci">
+                                <rect key="frame" x="20" y="71" width="560" height="509"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6f-Zb-hzd">
+                                <rect key="frame" x="524" y="28" width="56" height="30"/>
+                                <state key="normal" title="Guardar"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Om-Ft-bCM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="Jxl-MB-TpQ" secondAttribute="leading" id="08h-Rb-WmN"/>
-                            <constraint firstItem="2XP-Jb-3xm" firstAttribute="baseline" secondItem="RDE-of-9p9" secondAttribute="baseline" id="4DL-Ql-FEN"/>
-                            <constraint firstItem="RDE-of-9p9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Fx4-ur-8ig"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="2XP-Jb-3xm" secondAttribute="leading" id="QDV-gY-CoY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Jxl-MB-TpQ" secondAttribute="trailing" id="R9H-gM-UsY"/>
-                            <constraint firstItem="RDE-of-9p9" firstAttribute="leading" secondItem="2XP-Jb-3xm" secondAttribute="trailing" constant="8" id="ZxL-mv-eYI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="RDE-of-9p9" secondAttribute="trailing" constant="-10" id="fbN-PZ-u9K"/>
-                            <constraint firstItem="Jxl-MB-TpQ" firstAttribute="top" secondItem="2XP-Jb-3xm" secondAttribute="bottom" constant="8" id="n5x-3D-irk"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Jxl-MB-TpQ" secondAttribute="leading" id="nZg-xB-bK9"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jxl-MB-TpQ" secondAttribute="bottom" constant="20" id="t2z-HE-ZaJ"/>
+                            <constraint firstItem="o6f-Zb-hzd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="2Za-nB-nIe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9jP-N5-Dci" secondAttribute="trailing" id="83b-gw-5sx"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="9jP-N5-Dci" secondAttribute="leading" id="AQx-Bt-EWx"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="mnx-DB-YQF" secondAttribute="leading" id="FqW-QQ-gDC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mnx-DB-YQF" secondAttribute="trailing" constant="64" id="J77-l8-scy"/>
+                            <constraint firstItem="o6f-Zb-hzd" firstAttribute="leading" secondItem="mnx-DB-YQF" secondAttribute="trailing" constant="8" id="JrS-vH-zNb"/>
+                            <constraint firstItem="9jP-N5-Dci" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="51" id="KtB-kN-wc4"/>
+                            <constraint firstItem="o6f-Zb-hzd" firstAttribute="baseline" secondItem="mnx-DB-YQF" secondAttribute="baseline" id="Sqx-uY-ziX"/>
+                            <constraint firstItem="mnx-DB-YQF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="WGy-Lz-ySk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9jP-N5-Dci" secondAttribute="bottom" constant="20" id="kdN-NB-oKG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o6f-Zb-hzd" secondAttribute="trailing" id="w4n-Qi-nhJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Lista de tareas" id="kS8-Lv-BFF"/>
+                    <connections>
+                        <outlet property="itemTextField" destination="mnx-DB-YQF" id="g27-be-kgC"/>
+                        <outlet property="tableView" destination="9jP-N5-Dci" id="ok7-fl-aWZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

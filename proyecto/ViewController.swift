@@ -15,43 +15,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate
     private static let MAX_TEXT_SIZE = 50
 
     @IBAction func addButtonPressed( sender: UIButton ) {
-        print( "Agregando un elemento a la lista \(itemTextField.text)" )
-        self.todoList.addItem(item: itemTextField.text! )
-
+        print( "Agregando un elemento a la lista \(self.itemTextField.text!)" )
+        self.todoList.addItem( item: self.itemTextField.text! )
         tableView.reloadData()
-        self.itemTextField.text = nil
-        self.itemTextField?.resignFirstResponder()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+        // Adds a cell to the TableView and naming it "Cell"
         tableView.registerClass( UITableViewCell.self, forCellReuseIdentifier: "Cell" )
-        tableView.dataSource = todoList
-        tableView.delegate = self
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    //MARK: Métodos del table view delegate
-    func scrollViewDisScroll( scrollView: UIScrollView ) {
-        self.itemTextField?.resignFirstResponder()
-    }
-
-    //MARK: Métodos del text field delegate
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        var currentLength = 0
-        if let currentText = itemTextField.text {
-            let updatedString = (currentText as NSString).stringByReplacingCharactersInRange(range, withString: string)
-            currentLength = updatedString.characters.count
-        } else {
-            currentLength = string.characters.count
-        }
-        return currentLength <= ViewController.MAX_TEXT_SIZE
+        tableView.dataSource = self.todoList
     }
 }
-
