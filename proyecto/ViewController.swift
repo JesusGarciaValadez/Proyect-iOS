@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 
         // Setting a DataSource for the UITableView
         self.tableView.dataSource = self.todoList
-        self.tableView.delegate = self
+        //self.tableView.delegate = self
 
         self.itemTextField.delegate = self
     }
@@ -50,6 +50,10 @@ extension ViewController: UITableViewDelegate {
     func scrollViewDidScroll(scrollView: UIScrollView) {
         print( "Scrolling" )
         self.textFieldResignFirstResponder()
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier( "showItem", sender: self)
     }
 }
 
