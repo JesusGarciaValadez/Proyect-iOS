@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Lista de tareas-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="proyecto" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,7 +21,10 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mnx-DB-YQF">
                                 <rect key="frame" x="20" y="28" width="496" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="alphabet"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="doH-bS-hNo"/>
+                                </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9jP-N5-Dci">
                                 <rect key="frame" x="20" y="71" width="560" height="509"/>
@@ -50,7 +53,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="o6f-Zb-hzd" secondAttribute="trailing" id="w4n-Qi-nhJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Lista de tareas" id="kS8-Lv-BFF"/>
                     <connections>
                         <outlet property="itemTextField" destination="mnx-DB-YQF" id="g27-be-kgC"/>
                         <outlet property="tableView" destination="9jP-N5-Dci" id="ok7-fl-aWZ"/>

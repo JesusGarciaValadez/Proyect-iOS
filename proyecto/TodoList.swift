@@ -49,19 +49,33 @@ class TodoList: NSObject {
     }
 }
 
-// PRAGMA MARK: - Métodos del TableViewDataSource
+// PRAGMA MARK: - Métodos del UITableViewDataSource
 extension TodoList : UITableViewDataSource {
-    // Tells the data source to return the number of rows in a given section of a table view.
+    // MARK: - Tells the data source to return the number of rows in a given section of a table view.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.items.count
     }
 
-    // Asks the data source for a cell to insert in a particular location of the table view.
+    // MARK: - Asks the data source for a cell to insert in a particular location of the table view.
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier( "Cell", forIndexPath: indexPath )
         let item: String = items[ indexPath.row ]
         cell.textLabel!.text = item
 
         return cell
+    }
+
+    // MARK: - Make the cells deletable
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+
+    // MARK: -
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        items.removeAtIndex( indexPath.row )
+        saveItems()
+        tableView.beginUpdates()
+        tableView.deleteRowsAtIndexPaths( [ indexPath ], withRowAnimation: UITableViewRowAnimation.Middle )
+        tableView.endUpdates()
     }
 }

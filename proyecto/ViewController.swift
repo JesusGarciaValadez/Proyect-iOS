@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController {
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     let todoList: TodoList = TodoList()
@@ -17,31 +17,54 @@ class ViewController: UIViewController, UITableViewDelegate {
     @IBAction func addButtonPressed( sender: UIButton ) {
         print( "Agregando un elemento a la lista \(self.itemTextField.text!)" )
         self.todoList.addItem( item: self.itemTextField.text! )
-        tableView.reloadData()
+        self.tableView.reloadData()
 
+        self.itemTextField.text = nil
         self.textFieldResignFirstResponder()
+    }
+
+    // MARK: - Blur from the TextField and resign first responder
+    func textFieldResignFirstResponder() {
+        print( "Resign" )
+        self.itemTextField?.resignFirstResponder()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
 
         // Adds a cell to the TableView and naming it "Cell"
-        tableView.registerClass( UITableViewCell.self, forCellReuseIdentifier: "Cell" )
-        tableView.dataSource = self.todoList
-    }
+        self.tableView.registerClass( UITableViewCell.self,
+            forCellReuseIdentifier: "Cell" )
 
-    // MARK: - Blur from the TextField and resign first responder
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-        self.textFieldResignFirstResponder()
-    }
+        // Setting a DataSource for the UITableView
+        self.tableView.dataSource = self.todoList
+        self.tableView.delegate = self
 
-    func textFieldResignFirstResponder() {
-        self.itemTextField?.resignFirstResponder()
+        self.itemTextField.delegate = self
     }
 }
 
-// PRAGMA MARK: - Métodos del TextFieldDelegate
-extension ViewController: UITextFieldDelegate {
+// PRAGMA MARK: - Métodos del UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    // MARK: - Blur from the TextField and resign first responder
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        print( "Scrolling" )
+        self.textFieldResignFirstResponder()
+    }
+}
 
+// PRAGMA MARK: - Métodos del UITextFieldDelegate
+extension ViewController: UITextFieldDelegate {
+    // MARK: - Tells the TextField if user writes a lot and denies if there's more than MAX_TEXT_SIZE characters
+    func textField(textField: UITextField,
+        shouldChangeCharactersInRange range: NSRange,
+        replacementString string: String) -> Bool {
+        if let taskString = textField.text as? NSString {
+            let updatedTaskString = taskString.stringByReplacingCharactersInRange( range,
+                withString: string )
+            return updatedTaskString.characters.count <= ViewController.MAX_TEXT_SIZE
+        } else {
+            return true
+        }
+    }
 }
