@@ -22,7 +22,7 @@
             </objects>
             <point key="canvasLocation" x="412" y="-36"/>
         </scene>
-        <!--View Controller-->
+        <!--Lista de tareas-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="proyecto" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="xGC-zD-p1m"/>
+                    <navigationItem key="navigationItem" title="Lista de tareas" id="xGC-zD-p1m"/>
                     <connections>
                         <outlet property="itemTextField" destination="mnx-DB-YQF" id="g27-be-kgC"/>
                         <outlet property="tableView" destination="9jP-N5-Dci" id="ok7-fl-aWZ"/>
@@ -91,10 +91,10 @@
             </objects>
             <point key="canvasLocation" x="1159" y="-36"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="JQ5-mV-Mh3">
             <objects>
-                <viewController id="4n2-Jr-Gj9" sceneMemberID="viewController">
+                <viewController id="4n2-Jr-Gj9" customClass="DetailViewController" customModule="proyecto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fya-3n-IM4"/>
                         <viewControllerLayoutGuide type="bottom" id="2q2-tr-20Z"/>

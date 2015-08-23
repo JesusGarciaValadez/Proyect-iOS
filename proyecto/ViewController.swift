@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let todoList: TodoList = TodoList()
     private static let MAX_TEXT_SIZE = 50
+    var selectedItem: String?
 
     @IBAction func addButtonPressed( sender: UIButton ) {
         print( "Agregando un elemento a la lista \(self.itemTextField.text!)" )
@@ -42,6 +43,13 @@ class ViewController: UIViewController {
 
         self.itemTextField.delegate = self
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let detailViewController = segue.destinationViewController as? DetailViewController {
+            detailViewController.item = self.selectedItem
+        }
+    }
+
 }
 
 // PRAGMA MARK: - Métodos del UITableViewDelegate
@@ -53,6 +61,7 @@ extension ViewController: UITableViewDelegate {
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.selectedItem = self.todoList.getItem(index: indexPath.row)
         self.performSegueWithIdentifier( "showItem", sender: self)
     }
 }

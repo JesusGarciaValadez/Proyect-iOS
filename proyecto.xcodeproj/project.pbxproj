@@ -16,6 +16,7 @@
 		EA0F82421B73284800250AA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0F82401B73284800250AA4 /* LaunchScreen.storyboard */; };
 		EA0F824D1B73284800250AA4 /* proyectoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F824C1B73284800250AA4 /* proyectoTests.swift */; };
 		EA0F82581B73284900250AA4 /* proyectoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F82571B73284900250AA4 /* proyectoUITests.swift */; };
+		EAD3091E1B89892B0025F01A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3091D1B89892B0025F01A /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		EA0F82531B73284900250AA4 /* proyectoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = proyectoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0F82571B73284900250AA4 /* proyectoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = proyectoUITests.swift; sourceTree = "<group>"; };
 		EA0F82591B73284900250AA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAD3091D1B89892B0025F01A /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				EA0F82341B73284800250AA4 /* AppDelegate.swift */,
 				EA0F82361B73284800250AA4 /* ViewController.swift */,
 				71E8E11C1B7A94780091AAF8 /* TodoList.swift */,
+				EAD3091D1B89892B0025F01A /* DetailViewController.swift */,
 				EA0F82401B73284800250AA4 /* LaunchScreen.storyboard */,
 				EA0F82381B73284800250AA4 /* Main.storyboard */,
 				EA0F823E1B73284800250AA4 /* Assets.xcassets */,
@@ -264,6 +267,7 @@
 			files = (
 				EA0F823D1B73284800250AA4 /* proyecto.xcdatamodeld in Sources */,
 				EA0F82371B73284800250AA4 /* ViewController.swift in Sources */,
+				EAD3091E1B89892B0025F01A /* DetailViewController.swift in Sources */,
 				EA0F82351B73284800250AA4 /* AppDelegate.swift in Sources */,
 				71E8E11D1B7A94780091AAF8 /* TodoList.swift in Sources */,
 			);

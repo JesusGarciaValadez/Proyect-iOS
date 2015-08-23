@@ -47,6 +47,10 @@ class TodoList: NSObject {
             self.items = itemsArray
         }
     }
+
+    func getItem( index index: Int ) -> String {
+        return self.items[ index ]
+    }
 }
 
 // PRAGMA MARK: - Métodos del UITableViewDataSource
