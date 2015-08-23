@@ -11,10 +11,14 @@ import UIKit
 class DetailViewController: UIViewController {
     var item: String?
 
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print( self.item )
+        print( "Item: \(self.item)" )
+        self.descriptionLabel.text = self.item
     }
 
     override func didReceiveMemoryWarning() {
