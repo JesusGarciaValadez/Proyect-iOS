@@ -26,7 +26,6 @@ class ViewController: UIViewController {
 
     // MARK: - Blur from the TextField and resign first responder
     func textFieldResignFirstResponder() {
-        print( "Resign" )
         self.itemTextField?.resignFirstResponder()
     }
 
@@ -55,7 +54,6 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate {
     // MARK: - Blur from the TextField and resign first responder
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        print( "Scrolling" )
         self.textFieldResignFirstResponder()
     }
 

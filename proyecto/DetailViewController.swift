@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var item: String?
+    private let DATE_FORMAT = "dd/MM/yyyy HH:mm"
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -25,7 +26,44 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    @IBAction func addNotification(sender: UIBarButtonItem) {
+        if let dateString = self.dateLabel.text {
+            if let date = parseDate( string: dateString ) {
+                scheduleNotificacion( message: self.item!, date: date )
+            }
+        }
+    }
+
     
+    @IBAction func dateSelected(sender: UIDatePicker) {
+        print( "Fecha seleccionada: \( sender.date )" )
+        self.dateLabel.text = formatDate(date: sender.date )
+    }
+
+    // Formatting a date passed as parameter with a givven format
+    func formatDate( date date: NSDate ) -> String {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = self.DATE_FORMAT
+        return formatter.stringFromDate( date )
+    }
+
+    func parseDate( string string: String ) -> NSDate? {
+        let parser = NSDateFormatter()
+        parser.dateFormat = self.DATE_FORMAT
+        return parser.dateFromString( string )
+    }
+
+    func scheduleNotificacion( message message: String, date: NSDate ) {
+        let localNotificacion = UILocalNotification()
+        localNotificacion.fireDate = date
+        localNotificacion.timeZone = NSTimeZone.defaultTimeZone()
+        localNotificacion.alertBody = message
+        localNotificacion.alertTitle = "Recuerda esta tarea"
+        localNotificacion.applicationIconBadgeNumber = 1;
+
+        UIApplication.sharedApplication().scheduleLocalNotification( localNotificacion )
+    }
 
     /*
     // MARK: - Navigation

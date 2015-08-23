@@ -92,7 +92,7 @@
             </objects>
             <point key="canvasLocation" x="1159" y="-36"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Title-->
         <scene sceneID="JQ5-mV-Mh3">
             <objects>
                 <viewController id="4n2-Jr-Gj9" customClass="DetailViewController" customModule="proyecto" customModuleProvider="target" sceneMemberID="viewController">
@@ -151,17 +151,35 @@
                                     </mask>
                                 </variation>
                             </stackView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="eMH-Zo-hMk">
+                                <rect key="frame" x="0.0" y="364" width="600" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="GwQ-Ge-Z3M"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="462001677.28785002">
+                                    <!--2015-08-23 05:47:57 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="429105600">
+                                    <!--2014-08-07 12:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateSelected:" destination="4n2-Jr-Gj9" eventType="valueChanged" id="ApA-RV-Pl4"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UKH-fl-UGf" firstAttribute="height" secondItem="3MM-vw-53G" secondAttribute="height" multiplier="0.5" id="05P-PN-hn9"/>
                             <constraint firstAttribute="trailing" secondItem="UKH-fl-UGf" secondAttribute="trailing" id="JLN-wm-5to"/>
                             <constraint firstItem="UKH-fl-UGf" firstAttribute="leading" secondItem="3MM-vw-53G" secondAttribute="leading" id="UXo-f1-GFm"/>
+                            <constraint firstItem="eMH-Zo-hMk" firstAttribute="top" secondItem="UKH-fl-UGf" secondAttribute="bottom" id="X4z-lA-DzP"/>
                             <constraint firstAttribute="trailing" secondItem="UKH-fl-UGf" secondAttribute="trailing" id="Yxm-cc-00s"/>
                             <constraint firstItem="UKH-fl-UGf" firstAttribute="top" secondItem="Fya-3n-IM4" secondAttribute="bottom" id="aFP-md-xnS"/>
                             <constraint firstItem="UKH-fl-UGf" firstAttribute="top" secondItem="Fya-3n-IM4" secondAttribute="bottom" id="dv2-g2-8am"/>
+                            <constraint firstItem="eMH-Zo-hMk" firstAttribute="leading" secondItem="3MM-vw-53G" secondAttribute="leading" id="dxX-UT-dQu"/>
                             <constraint firstItem="UKH-fl-UGf" firstAttribute="leading" secondItem="3MM-vw-53G" secondAttribute="leading" id="k2a-FG-cy1"/>
                             <constraint firstItem="2q2-tr-20Z" firstAttribute="top" secondItem="UKH-fl-UGf" secondAttribute="bottom" id="mUr-ou-jyC"/>
+                            <constraint firstAttribute="trailing" secondItem="eMH-Zo-hMk" secondAttribute="trailing" id="un6-45-6up"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -172,6 +190,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="sbN-9c-cgU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="lh3-cX-OQG">
+                            <connections>
+                                <action selector="addNotification:" destination="4n2-Jr-Gj9" id="NQE-0Y-gK9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="yOI-Ah-53c" id="hT0-Kf-RwW"/>
                         <outlet property="descriptionLabel" destination="BY7-Fh-arb" id="5tA-vp-hBN"/>

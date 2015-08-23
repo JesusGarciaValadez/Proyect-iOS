@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let settings = UIUserNotificationSettings( forTypes: [ .Alert, .Badge, .Sound ], categories: nil )
+        UIApplication.sharedApplication().registerUserNotificationSettings( settings )
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 0
+
         return true
     }
 
@@ -107,5 +112,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        print( "Tipos de notificaciones aceptadas: \(notificationSettings.types)")
+    }
+
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        if let message = notification.alertBody {
+            let alert = UIAlertView( title: "", message: message, delegate: nil, cancelButtonTitle: "OK" )
+            alert.show()
+        }
+    }
 }
 
