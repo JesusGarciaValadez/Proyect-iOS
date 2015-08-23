@@ -40,8 +40,7 @@ class ViewController: UIViewController {
         // Setting a DataSource for the UITableView
         self.tableView.dataSource = self.todoList
         //self.tableView.delegate = self
-
-        self.itemTextField.delegate = self
+        //self.itemTextField.delegate = self
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -63,6 +62,12 @@ extension ViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.selectedItem = self.todoList.getItem(index: indexPath.row)
         self.performSegueWithIdentifier( "showItem", sender: self)
+
+        // Performing segue via code
+        /*
+        let detailVC = DetailViewController()
+        self.navigationController?.pushViewController( detailVC, animated: true)
+        */
     }
 }
 
