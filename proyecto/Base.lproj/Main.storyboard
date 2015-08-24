@@ -227,6 +227,7 @@
                         <outlet property="datePicker" destination="eMH-Zo-hMk" id="RlS-BM-1ME"/>
                         <outlet property="descriptionLabel" destination="BY7-Fh-arb" id="5tA-vp-hBN"/>
                         <outlet property="doneButton" destination="lh3-cX-OQG" id="a8h-MR-IBl"/>
+                        <outlet property="imageView" destination="ESH-Ie-DHO" id="ACQ-oa-zBC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ewl-1t-rKN" userLabel="First Responder" sceneMemberID="firstResponder"/>

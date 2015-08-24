@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,7 @@ class DetailViewController: UIViewController {
         let imagePickerController = UIImagePickerController()
         imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController( imagePickerController, animated: true, completion: nil )
+        imagePickerController.delegate = self
     }
 
     // Formatting a date passed as parameter with a given format
@@ -90,6 +92,7 @@ class DetailViewController: UIViewController {
     }
 
     func toggleDatePicker() {
+        self.imageView.hidden = self.datePicker.hidden
         self.datePicker.hidden = !self.datePicker.hidden
     }
 
@@ -103,4 +106,14 @@ class DetailViewController: UIViewController {
     }
     */
 
+}
+
+// MARK: - UIImagePickerControllerDelegate and UINavigatotControllerDelegate methods
+extension DetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[ UIImagePickerControllerOriginalImage ] as? UIImage {
+            self.imageView.image = image
+        }
+        self.dismissViewControllerAnimated( true, completion: nil )
+    }
 }
