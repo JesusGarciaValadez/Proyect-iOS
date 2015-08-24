@@ -15,12 +15,20 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var datePicker: UIDatePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print( "Item: \(self.item)" )
         self.descriptionLabel.text = self.item
+
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        tapGestureRecognizer.numberOfTouchesRequired = 1
+        tapGestureRecognizer.addTarget( self, action: "toggleDatePicker" )
+        self.dateLabel.addGestureRecognizer( tapGestureRecognizer )
+        self.dateLabel.userInteractionEnabled = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,6 +44,7 @@ class DetailViewController: UIViewController {
             if let date = parseDate( string: dateString ) {
                 // Schedule a local notification from the date
                 scheduleNotificacion( message: self.item!, date: date )
+                self.doneButton.enabled = false
             }
         }
     }
@@ -45,6 +54,13 @@ class DetailViewController: UIViewController {
         print( "Fecha seleccionada: \( sender.date )" )
         self.dateLabel.text = formatDate(date: sender.date )
         self.doneButton.enabled = true
+        self.datePicker.hidden = true
+    }
+
+    @IBAction func addImage(sender: UIBarButtonItem) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController( imagePickerController, animated: true, completion: nil )
     }
 
     // Formatting a date passed as parameter with a given format
@@ -71,6 +87,10 @@ class DetailViewController: UIViewController {
         localNotificacion.applicationIconBadgeNumber = 1;
 
         UIApplication.sharedApplication().scheduleLocalNotification( localNotificacion )
+    }
+
+    func toggleDatePicker() {
+        self.datePicker.hidden = !self.datePicker.hidden
     }
 
     /*
