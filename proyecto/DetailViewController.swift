@@ -9,7 +9,9 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    var item: String?
+    var item: TodoItem?,
+    todoList: TodoList?
+    
     private let DATE_FORMAT = "dd/MM/yyyy HH:mm"
 
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -22,7 +24,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         print( "Item: \(self.item)" )
-        self.descriptionLabel.text = self.item
+        self.showItem()
 
         let tapGestureRecognizer = UITapGestureRecognizer()
         tapGestureRecognizer.numberOfTapsRequired = 1
@@ -37,6 +39,18 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func showItem() {
+        self.descriptionLabel.text = item?.todo
+        if let date = item?.dueDate {
+            let formatter = NSDateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy HH:mm"
+            self.dateLabel.text = formatter.stringFromDate( date )
+        }
+        if let img = item?.image {
+            self.imageView.image = img
+        }
+    }
+
     // Schedule a local notificacion with a given date
     @IBAction func addNotification(sender: UIBarButtonItem) {
         // Obtain the date from the dateLabel as a string
@@ -44,8 +58,13 @@ class DetailViewController: UIViewController {
             // Obtain a date from a string
             if let date = parseDate( string: dateString ) {
                 // Schedule a local notification from the date
-                scheduleNotificacion( message: self.item!, date: date )
+                self.item?.dueDate = date
+                self.todoList?.saveItems()
+
+                scheduleNotificacion( message: self.item!.todo!, date: date )
                 self.doneButton.enabled = false
+
+                self.navigationController?.popViewControllerAnimated( true )
             }
         }
     }
@@ -112,6 +131,8 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[ UIImagePickerControllerOriginalImage ] as? UIImage {
+            self.item?.image = image
+            self.todoList?.saveItems()
             self.imageView.image = image
         }
         self.dismissViewControllerAnimated( true, completion: nil )

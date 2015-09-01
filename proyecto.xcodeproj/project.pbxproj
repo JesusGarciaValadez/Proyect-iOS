@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		71E8E11D1B7A94780091AAF8 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E8E11C1B7A94780091AAF8 /* TodoList.swift */; };
+		71EBF51E1B965A8200CF094B /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EBF51D1B965A8200CF094B /* TodoItem.swift */; settings = {ASSET_TAGS = (); }; };
 		EA0F82351B73284800250AA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F82341B73284800250AA4 /* AppDelegate.swift */; };
 		EA0F82371B73284800250AA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0F82361B73284800250AA4 /* ViewController.swift */; };
 		EA0F823A1B73284800250AA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0F82381B73284800250AA4 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		71E8E11C1B7A94780091AAF8 /* TodoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
+		71EBF51D1B965A8200CF094B /* TodoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		EA0F82311B73284800250AA4 /* proyecto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = proyecto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0F82341B73284800250AA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA0F82361B73284800250AA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				EA0F82361B73284800250AA4 /* ViewController.swift */,
 				71E8E11C1B7A94780091AAF8 /* TodoList.swift */,
 				EAD3091D1B89892B0025F01A /* DetailViewController.swift */,
+				71EBF51D1B965A8200CF094B /* TodoItem.swift */,
 				EA0F82401B73284800250AA4 /* LaunchScreen.storyboard */,
 				EA0F82381B73284800250AA4 /* Main.storyboard */,
 				EA0F823E1B73284800250AA4 /* Assets.xcassets */,
@@ -269,6 +272,7 @@
 				EA0F82371B73284800250AA4 /* ViewController.swift in Sources */,
 				EAD3091E1B89892B0025F01A /* DetailViewController.swift in Sources */,
 				EA0F82351B73284800250AA4 /* AppDelegate.swift in Sources */,
+				71EBF51E1B965A8200CF094B /* TodoItem.swift in Sources */,
 				71E8E11D1B7A94780091AAF8 /* TodoList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

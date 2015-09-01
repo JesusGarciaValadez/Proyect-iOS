@@ -9,7 +9,7 @@
 import UIKit
 
 class TodoList: NSObject {
-    var items: [ String ] = []
+    var items: [ TodoItem ] = []
 
     override init() {
         super.init()
@@ -24,10 +24,10 @@ class TodoList: NSObject {
         let documentDirectoryURL = documentDirectoryURLs.first!
         print( "Path a documents \(documentDirectoryURL)" )
 
-        return documentDirectoryURL.URLByAppendingPathComponent( "todolist.items" )
+        return documentDirectoryURL.URLByAppendingPathComponent( "todolist.plist" )
     }()
 
-    func addItem( item item: String ) {
+    func addItem( item item: TodoItem ) {
         items.append( item )
 
         self.saveItems()
@@ -35,20 +35,21 @@ class TodoList: NSObject {
 
     func saveItems() {
         let itemsArray = items as NSArray
-        if itemsArray.writeToURL( self.fileURL, atomically: true ) {
+
+        if NSKeyedArchiver.archiveRootObject( itemsArray, toFile: self.fileURL.path! ) {
             print( "Guardado" )
         } else {
-            print( "No guardado" )
+            print( "No Guardado" )
         }
     }
 
     func loadItems() {
-        if let itemsArray = NSArray( contentsOfURL: self.fileURL ) as? [ String ] {
-            self.items = itemsArray
+        if let itemsArray = NSKeyedUnarchiver.unarchiveObjectWithFile( self.fileURL.path! ) {
+            self.items = itemsArray as! [ TodoItem ]
         }
     }
 
-    func getItem( index index: Int ) -> String {
+    func getItem( index index: Int ) -> TodoItem {
         return self.items[ index ]
     }
 }
@@ -63,9 +64,9 @@ extension TodoList : UITableViewDataSource {
     // MARK: - Asks the data source for a cell to insert in a particular location of the table view.
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier( "Cell", forIndexPath: indexPath )
-        let item: String = items[ indexPath.row ]
-        cell.textLabel!.text = item
+        let item = items[ indexPath.row ]
 
+        cell.textLabel!.text = item.todo
         return cell
     }
 
