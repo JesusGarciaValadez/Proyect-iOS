@@ -15,6 +15,21 @@ class ViewController: UIViewController {
     private static let MAX_TEXT_SIZE = 50
     var selectedItem: TodoItem?
 
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Adds a cell to the TableView and naming it "Cell"
+        self.tableView.registerClass( UITableViewCell.self,
+            forCellReuseIdentifier: "Cell" )
+
+        // Setting a DataSource for the UITableView
+        self.tableView.dataSource = self.todoList
+        //self.tableView.delegate = self
+        //self.itemTextField.delegate = self
+    }
+
+    // Create a new Item and add it to the list. Reload the tableView, reset the itemTextField and hide the keyboard
     @IBAction func addButtonPressed( sender: UIButton ) {
         print( "Agregando un elemento a la lista \(self.itemTextField.text!)" )
         let todoItem = TodoItem()
@@ -32,19 +47,7 @@ class ViewController: UIViewController {
         self.itemTextField?.resignFirstResponder()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Adds a cell to the TableView and naming it "Cell"
-        self.tableView.registerClass( UITableViewCell.self,
-            forCellReuseIdentifier: "Cell" )
-
-        // Setting a DataSource for the UITableView
-        self.tableView.dataSource = self.todoList
-        //self.tableView.delegate = self
-        //self.itemTextField.delegate = self
-    }
-
+    // Prepare for passing objects to the DetailViewController in the segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let detailViewController = segue.destinationViewController as? DetailViewController {
             detailViewController.item = self.selectedItem
@@ -52,15 +55,15 @@ class ViewController: UIViewController {
         }
     }
 
-}
-
-// PRAGMA MARK: - Métodos del UITableViewDelegate
-extension ViewController: UITableViewDelegate {
     // MARK: - Blur from the TextField and resign first responder
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.textFieldResignFirstResponder()
     }
+}
 
+// PRAGMA MARK: - Métodos del UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    // MARK: - 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.selectedItem = self.todoList.getItem(index: indexPath.row)
         self.performSegueWithIdentifier( "showItem", sender: self)
