@@ -54,7 +54,7 @@ class TodoList: NSObject {
     }
 }
 
-// PRAGMA MARK: - Métodos del UITableViewDataSource
+// PRAGMA MARK: - Methods of the UITableViewDataSource
 extension TodoList : UITableViewDataSource {
     // MARK: - Tells the data source to return the number of rows in a given section of a table view.
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

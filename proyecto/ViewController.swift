@@ -61,9 +61,9 @@ class ViewController: UIViewController {
     }
 }
 
-// PRAGMA MARK: - Métodos del UITableViewDelegate
+// PRAGMA MARK: - Methods of the UITableViewDelegate
 extension ViewController: UITableViewDelegate {
-    // MARK: - 
+    // MARK: -
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.selectedItem = self.todoList.getItem(index: indexPath.row)
         self.performSegueWithIdentifier( "showItem", sender: self)
@@ -76,7 +76,7 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
-// PRAGMA MARK: - Métodos del UITextFieldDelegate
+// PRAGMA MARK: - Methods of the UITextFieldDelegate
 extension ViewController: UITextFieldDelegate {
     // MARK: - Tells the TextField if user writes a lot and denies if there's more than MAX_TEXT_SIZE characters
     func textField(textField: UITextField,
