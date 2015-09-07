@@ -13,10 +13,12 @@ class TodoItem: NSObject {
     dueDate: NSDate?,
     image: UIImage?
 
+    // MARK: Class inicialization without parameters
     override init() {
         super.init()
     }
 
+    // MARK: Class inicialization with parameters for decode information and self provide with this info
     required init( coder aDecoder: NSCoder ) {
         super.init()
 
@@ -34,7 +36,10 @@ class TodoItem: NSObject {
     }
 }
 
+// PRAGMA MARK: - NSCoding Protocol Methods
 extension TodoItem: NSCoding {
+
+    // MARK: Encode all the parameters with NSCoder coder for self serialization
     func encodeWithCoder( aCoder: NSCoder ) {
         if let message = self.todo {
             aCoder.encodeObject( message, forKey: "todo" )
