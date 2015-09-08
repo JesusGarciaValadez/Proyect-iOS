@@ -63,7 +63,7 @@ class ViewController: UIViewController {
 
 // PRAGMA MARK: - Methods of the UITableViewDelegate
 extension ViewController: UITableViewDelegate {
-    // MARK: Do the segue and pass it to the ViewController
+    // MARK: Obtain the name of the task for pass it to the DetailViewController and do the segue
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.selectedItem = self.todoList.getItem(index: indexPath.row)
         self.performSegueWithIdentifier( "showItem", sender: self)

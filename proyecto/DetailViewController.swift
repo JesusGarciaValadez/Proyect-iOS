@@ -104,12 +104,18 @@ class DetailViewController: UIViewController {
     // MARK: Configuration and schedule of UILocalNotification
     func scheduleNotificacion( message message: String, date: NSDate ) {
         let localNotificacion = UILocalNotification()
+        // Set a date in which a notification is triggered
         localNotificacion.fireDate = date
+        // Set a timezone for the notification
         localNotificacion.timeZone = NSTimeZone.defaultTimeZone()
+        // Set a message for the notification
         localNotificacion.alertBody = message
+        // Set a title for the notification
         localNotificacion.alertTitle = "Recuerda esta tarea"
+        // Set a number for the icon badge
         localNotificacion.applicationIconBadgeNumber = 1;
 
+        // Schedule the local notification in the app
         UIApplication.sharedApplication().scheduleLocalNotification( localNotificacion )
     }
 

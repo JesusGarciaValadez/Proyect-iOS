@@ -112,10 +112,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    // MARK: - Show what king of notifications are accepted
     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         print( "Tipos de notificaciones aceptadas: \(notificationSettings.types)")
     }
 
+    // MARK: Show an alert if the app is running when a notification is received
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         if let message = notification.alertBody {
             let alert = UIAlertView( title: "", message: message, delegate: nil, cancelButtonTitle: "OK" )
